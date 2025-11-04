@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Santa Order Form</title>
+<link rel="icon" type="image/png" href="gigis logo.png">
+</head>
+<body>
+<div class="snow-container"></div>
+<div class="lights-garland">
+  <div class="light-bulb red"></div>
+  <div class="light-bulb yellow"></div>
+  <div class="light-bulb green"></div>
+  <div class="light-bulb blue"></div>
+  <div class="light-bulb red"></div>
+  <div class="light-bulb yellow"></div>
+  <div class="light-bulb green"></div>
+  <div class="light-bulb blue"></div>
+  <div class="light-bulb red"></div>
+  <div class="light-bulb yellow"></div>
+  <div class="light-bulb green"></div>
+  <div class="light-bulb blue"></div>
+  <div class="light-bulb red"></div>
+  <div class="light-bulb yellow"></div>
+  <div class="light-bulb green"></div>
+  <div class="light-bulb blue"></div>
+  <div class="light-bulb red"></div>
+  <div class="light-bulb yellow"></div>
+  <div class="light-bulb green"></div>
+  <div class="light-bulb blue"></div>
+</div>
+
+<div class="radial-overlay"></div>
+
+<div class="bokeh-light"></div>
+<div class="bokeh-light"></div>
+<div class="bokeh-light"></div>
+
+<div class="ornament" style="top:20%; left:10%; background-color:hsl(355,78%,50%); animation-duration:4s;"></div>
+<div class="ornament" style="top:50%; left:22%; background-color:hsl(43,96%,56%); animation-duration:5s;"></div>
+<div class="ornament" style="top:80%; left:34%; background-color:hsl(140,65%,35%); animation-duration:6s;"></div>
+<div class="ornament" style="top:10%; left:46%; background-color:hsl(355,78%,50%); animation-duration:4.5s;"></div>
+<div class="ornament" style="top:60%; left:58%; background-color:hsl(43,96%,56%); animation-duration:5.5s;"></div>
+<div class="ornament" style="top:30%; left:70%; background-color:hsl(140,65%,35%); animation-duration:6.5s;"></div>
+<div class="ornament" style="top:40%; left:82%; background-color:hsl(355,78%,50%); animation-duration:4.2s;"></div>
+<div class="ornament" style="top:75%; left:94%; background-color:hsl(43,96%,56%); animation-duration:5.2s;"></div>
+
+<div class="vignette"></div>
+
+<div class="header">
+  <div class="header-lights"></div> 
+  <h1>საშობაო ზღაპარი</h1>
+  
+</div>
+<img src="santa.png" alt="Santa" class="santa-peek">
+<div class="intro-text">
+  <img src="baneri1.png" alt="Description" class="intro-image">
+  <br><br>
+  ✨ კეთილი სანტა და მისი ელფები ბავშვებისთვის ქმნიან ჯადოსნურ ისტორიებს, სადაც თქვენი პატარა ხდება მთავარი გმირი! <br>
+  აჩუქეთ თქვენს პატარას ის ემოცია, რომელსაც მთელი ცხოვრება ჩაიხუტებს.
+  შეუკვეთეთ ახლა და შექმენით თქვენი პატარა ჯადოსნური ისტორია! ✨
+</div>
+<section class="examples-section">
+  <h2>ვიდეო-წერილის ნიმუშები</h2>
+  <div class="videos-container">
+    <iframe src="https://www.youtube.com/embed/qZFwU6ytYT4" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/f2G3sU5LF_o" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+
+<div class="order-button-container">
+  <button class="order-button" onclick="openOrderForm()">შეუკვეთე ახლავე🎅</button>
+</div>
+
+<div class="order-form-overlay" id="orderFormOverlay">
+  <div class="order-form-container">
+    <button class="close-form" onclick="closeOrderForm()">×</button>
+    <h2>შეკვეთის ფორმა</h2>
+    <form id="orderForm" onsubmit="submitOrder(event)">
+      <div class="form-group">
+        <label for="numPeople">რამდენი ადამიანისთვის გსურთ ვიდეო?</label>
+        <select id="numPeople" required onchange="updateNameFields()">
+          <option value="">აირჩიეთ რაოდენობა</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+
+      <div id="nameFieldsContainer"></div>
+
+      <div class="form-group">
+        <label>აირჩიეთ ვიდეოს ტიპი:</label>
+        <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+          <label style="display: flex; align-items: center; padding: 15px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+            <input type="radio" name="videoType" value="video-film" required style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-weight: normal;">
+              <strong style="color: #ff8800; text-shadow: 0 0 20px rgba(255, 136, 0, 0.6), 2px 2px 10px rgba(0,0,0,0.8);font-size: 1.1rem;">ვიდეო ფილმი</strong> - 150 ლარი
+            </span>
+          </label>
+          <label style="display: flex; align-items: center; padding: 15px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">
+            <input type="radio" name="videoType" value="cabinet-message" required style="margin-right: 12px; width: 20px; height: 20px; cursor: pointer;">
+            <span style="font-weight: normal;">
+              <strong style="color: #ff8800; text-shadow: 0 0 20px rgba(255, 136, 0, 0.6), 2px 2px 10px rgba(0,0,0,0.8);font-size: 1.1rem;">მიმართვა კაბინეტიდან</strong> - 100 ლარი
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="ordersubmit">შეუკვეთე</button>
+    </form>
+  </div>
+</div>
+ 
+<div class="delivery-overlay" id="deliveryOverlay">
+  <div class="delivery-container">
+    <button class="close-form" onclick="closeDelivery()">×</button>
+    <h2>აირჩიეთ მიწოდების მეთოდი</h2>
+    <form id="deliveryForm" onsubmit="submitDelivery(event)">
+      <div class="form-group">
+        <label onclick="selectDelivery('gmail')" class="delivery-option" id="option-gmail">
+          <input type="radio" name="deliveryMethod" value="gmail" required>
+          <span style="font-weight: normal;">
+            <strong style="color: #ff8800; font-size: 1.1rem;">Gmail</strong> - ვიდეო გამოიგზავნება თქვენს Gmail-ზე
+          </span>
+        </label>
+        
+        <div class="email-field" id="gmailField">
+          <label for="gmailAddress">ელ. ფოსტა</label>
+          <input type="email" id="gmailAddress" placeholder="example@gmail.com">
+        </div>
+
+        <label onclick="selectDelivery('dropbox')" class="delivery-option" id="option-dropbox">
+          <input type="radio" name="deliveryMethod" value="dropbox" required>
+          <span style="font-weight: normal;">
+            <strong style="color: #ff8800;  font-size: 1.1rem;">Dropbox</strong> - ვიდეო ატვირთული იქნება Dropbox-ზე
+          </span>
+        </label>
+
+        <label onclick="selectDelivery('stream')" class="delivery-option" id="option-stream">
+          <input type="radio" name="deliveryMethod" value="stream" required>
+          <span style="font-weight: normal;">
+            <strong style="color: #ff8800; font-size: 1.1rem;">ონლაინ სტრიმი</strong> - მიიღებთ ბმულს ონლაინ ნახვისთვის
+          </span>
+        </label>
+
+        <label onclick="selectDelivery('other')" class="delivery-option" id="option-other">
+          <input type="radio" name="deliveryMethod" value="other" required>
+          <span style="font-weight: normal;">
+            <strong style="color: #ff8800; font-size: 1.1rem;">სხვა</strong> - დაგვიკავშირდით სასურველი მეთოდისთვის
+          </span>
+        </label>
+
+        <div class="email-field" id="otherField">
+          <label for="otherMethod">მიუთითეთ სასურველი მეთოდი</label>
+          <textarea id="otherMethod" placeholder="მაგ: Google Drive, WeTransfer, USB და ა.შ..." rows="3"></textarea>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:25px;">
+        <button type="button" class="back-btn" onclick="backToOrder()">უკან</button>
+        <button type="submit" class="submit-btn">გაგრძელება</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="payment-overlay" id="paymentOverlay">
+  <div class="payment-container">
+    <button class="close-form" onclick="closePayment()">×</button>
+    <h2>გადახდა</h2>
+    <form id="paymentForm" onsubmit="submitPayment(event)">
+      <div class="form-group">
+        <label for="fullName">თქვენი სახელი და გვარი</label>
+        <input type="text" id="fullName" required>
+      </div>
+      <div class="form-group">
+        <label for="numberPhone">ტელეფონის ნომერი</label>
+        <input type="tel" id="numberPhone" required pattern="[0-9]{9,15}">
+      </div>
+      <div class="form-group">
+        <label for="cardNum">შეიყვანეთ ბარათის ნომერი</label>
+        <input type="text" id="cardNum" inputmode="numeric" maxlength="19" placeholder="მაგ:1111 2222 3333 4444" required>
+      </div>
+      <div class="payment-row">
+        <div class="half form-group">
+          <label for="expMonth">თვე</label>
+          <select id="expMonth" required>
+            <option value="">აირჩიე თვე</option>
+            <option value="01">01 - იანვარი</option>
+            <option value="02">02 - თებერვალი</option>
+            <option value="03">03 - მარტი</option>
+            <option value="04">04 - აპრილი</option>
+            <option value="05">05 - მაისი</option>
+            <option value="06">06 - ივნისი</option>
+            <option value="07">07 - ივლისი</option>
+            <option value="08">08 - აგვისტო</option>
+            <option value="09">09 - სექტემბერი</option>
+            <option value="10">10 - ოქტომბერი</option>
+            <option value="11">11 - ნოემბერი</option>
+            <option value="12">12 - დეკემბერი</option>
+          </select>
+        </div>
+        <div class="half form-group">
+          <label for="expYear">წელი</label>
+          <select id="expYear" required>
+            <option value="">აირჩიე წელი</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" placeholder="შეიყვანეთ 3 ან 4 ციფრიანი CVV" required maxlength="4" inputmode="numeric">
+      </div>
+      <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:25px;">
+        <button type="button" class="back-btn" onclick="saveForm()">უკან</button>
+        <button type="submit" class="submit-btn">გადახდა</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="success-modal" id="successModal">
+  <div class="success-content">
+    <div class="success-icon">🎅🎄</div>
+    <h3>შეკვეთა მიღებულია!</h3>
+    <p>მადლობა!<br> თქვენი შეკვეთა წარმატებით გაიგზავნა!<br>ჩვენ მალე დაგიკავშირდებით.</p>
+    <button class="success-button" onclick="closeSuccessModal()">კარგი</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>დამატებითი კითხვების შესახებ დაგვიკავშირდით:</p><br>
+  <div class="footer-contacts">
+    <a href="https://www.facebook.com/sashobaozgapari" target="_blank" title="Facebook">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    </a>
+    <a href="https://www.tiktok.com/@santa.wishes?is_from_webapp=1&sender_device=pc" target="_blank" title="TikTok">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/santawishesss/" target="_blank" title="Instagram">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+    </a>
+    <a href="tel:+995598281599" title="ტელეფონი">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+      </svg>
+    </a>
+  </div>
+  <p>ყველა უფლება დაცულია © საშობაო ზღაპარი 2025</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
