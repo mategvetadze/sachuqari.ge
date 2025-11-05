@@ -1363,13 +1363,14 @@ option:disabled {
   
   .santa-peek {
     width: 350px;
+    margin-top: -50px;
   }
   
   .intro-text {
     max-width: 600px;
     font-size: 1.2rem;
     padding: 20px 25px;
-    margin-top: -250px;
+    margin-top: -280px;
   }
   
   .videos-container iframe {
@@ -1394,15 +1395,15 @@ option:disabled {
   }
   
   .santa-peek {
-    width: 280px;
-    margin-top: -30px;
-  }
+  width: 280px;
+  margin-top: -50px;
+}
   
   .intro-text {
     max-width: 90%;
     font-size: 1.1rem;
     padding: 20px;
-    margin-top: -200px;
+    margin-top: -230px;
     border-width: 3px;
   }
   
@@ -1433,10 +1434,11 @@ option:disabled {
   }
   
   .footer .footer-contacts {
-    gap: 80px;
-    font-size: 1.1rem;
+    gap: 40px;  
+    font-size: 1rem;
+    flex-wrap: wrap; 
+    justify-content: center; 
   }
-  
   .order-form-container,
   .delivery-container,
   .payment-container {
@@ -1464,15 +1466,15 @@ option:disabled {
   }
   
   .santa-peek {
-    width: 200px;
-    margin-top: -20px;
-  }
+  width: 200px;
+  margin-top: -50px;
+}
   
   .intro-text {
     max-width: 95%;
     font-size: 1rem;
     padding: 15px;
-    margin-top: -150px;
+    margin-top: -187px;
     border-width: 2px;
   }
   
@@ -1515,11 +1517,12 @@ option:disabled {
   }
   
   .footer .footer-contacts {
-    flex-direction: column;
-    gap: 20px;
+    gap: 25px;  
     font-size: 1rem;
+    flex-wrap: wrap; 
+    justify-content: center;  
+    
   }
-  
   .footer a {
     margin-right: 0;
   }
@@ -1649,11 +1652,13 @@ option:disabled {
   
   .santa-peek {
     width: 160px;
+    margin-top: -50px;
   }
   
   .intro-text {
     font-size: 0.95rem;
     padding: 12px;
+    margin-top: -120px;
   }
   
   .videos-container iframe {
@@ -1667,6 +1672,13 @@ option:disabled {
   
   .examples-section h2 {
     font-size: 1.3rem;
+  }
+  .footer .footer-contacts {
+    gap: 20px;  
+    font-size: 1rem;
+    flex-wrap: wrap; 
+    justify-content: center;  
+    
   }
 }
   </style>
@@ -2272,6 +2284,7 @@ function updateNameFields() {
     container.appendChild(fieldGroup);
   }
 }
+
 
 
 </script>
