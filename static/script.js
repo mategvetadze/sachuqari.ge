@@ -412,18 +412,14 @@ async function submitPayment(event) {
     alert('rame');
     return;
   }
-
-  // Collect all form data
   const formData = new FormData();
 
-  // Order information
   const numPeople = parseInt(document.getElementById('numPeople').value);
   const videoType = document.querySelector('input[name="videoType"]:checked').value;
 
   formData.append('numPeople', numPeople);
   formData.append('videoType', videoType);
 
-  // Collect data for each person
   const peopleData = [];
   for (let i = 1; i <= numPeople; i++) {
     const personData = {
@@ -433,7 +429,6 @@ async function submitPayment(event) {
     };
     peopleData.push(personData);
 
-    // Add photos for this person
     const photos = document.getElementById(`photoUpload${i}`).files;
     for (let j = 0; j < photos.length; j++) {
       formData.append(`person${i}_photo${j}`, photos[j]);
@@ -442,7 +437,6 @@ async function submitPayment(event) {
 
   formData.append('peopleData', JSON.stringify(peopleData));
 
-  // Delivery information
   const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
   formData.append('deliveryMethod', deliveryMethod);
 
@@ -452,19 +446,15 @@ async function submitPayment(event) {
     formData.append('otherMethod', document.getElementById('otherMethod').value);
   }
 
-  // Payment information
   formData.append('fullName', document.getElementById('fullName').value);
   formData.append('phoneNumber', document.getElementById('numberPhone').value);
   formData.append('receipt', receipt);
 
   try {
-    // Show loading state (optional)
     const submitBtn = event.target.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
      submitBtn.textContent = 'დასრულება';
     submitBtn.disabled = true;
-
-    // Send POST request to your backend
     const response = await fetch('/', {
       method: 'POST',
       body: formData
@@ -477,19 +467,15 @@ async function submitPayment(event) {
     const result = await response.json();
     console.log('Order submitted successfully:', result);
 
-    // Reset all forms
     document.getElementById('paymentForm').reset();
     document.getElementById('orderForm').reset();
     document.getElementById('deliveryForm').reset();
 
-    // Clear the payment file upload display
     deleteFile();
 
-    // Clear all dynamic name fields completely
     const container = document.getElementById('nameFieldsContainer');
     container.innerHTML = '';
 
-    // Reset the number of people selector
     document.getElementById('numPeople').value = '';
 
     closePayment();
@@ -500,7 +486,6 @@ async function submitPayment(event) {
     console.error('Error submitting order:', error);
     alert('rame');
 
-    // Restore button state
     const submitBtn = event.target.querySelector('.submit-btn');
     submitBtn.textContent = originalText;
     submitBtn.disabled = false;
