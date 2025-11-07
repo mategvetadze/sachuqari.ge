@@ -1,0 +1,79 @@
+# -------------------------------
+# Python
+# -------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+build/
+dist/
+
+# -------------------------------
+# Virtual environments
+# -------------------------------
+venv/
+env/
+.venv/
+.env/
+
+# -------------------------------
+# IDEs and Editors
+# -------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------------
+# OS-specific
+# -------------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# Flask / Django static & media
+# -------------------------------
+instance/
+media/
+uploads/
+*.db
+*.sqlite3
+
+# -------------------------------
+# Logs & Caches
+# -------------------------------
+*.log
+*.bak
+*.tmp
+*.cache/
+__pycache__/
+.coverage
+htmlcov/
+
+# -------------------------------
+# Environment files
+# -------------------------------
+.env
+*.env
+.env.*
+
+# -------------------------------
+# Migrations (if using Flask-Migrate)
+# -------------------------------
+migrations/
+
+# -------------------------------
+# Local configs / secrets
+# -------------------------------
+config.json
+secrets.json
+
+# -------------------------------
+# Node.js (if using frontend builds)
+# -------------------------------
+node_modules/
+npm-debug.log
+yarn-error.log
