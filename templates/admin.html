@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Orders</title>
+</head>
+<body>
+  <h1>🎅 All Santa Orders</h1>
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Phone</th>
+      <th>Video Type</th>
+      <th>Images</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+      <td>{{ order.id }}</td>
+      <td>{{ order.full_name }}</td>
+      <td>{{ order.phone }}</td>
+      <td>{{ order.video_type }}</td>
+      <td>
+        {% for path in order.image_paths.split(',') %}
+          <img src="{{ path }}" width="80" style="margin:3px; border-radius:8px;">
+        {% endfor %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
