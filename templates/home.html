@@ -86,13 +86,13 @@
       <h2>შეკვეთის ფორმა</h2>
       
 
-      <div class="video-tutorial">
+       <!--<div class="video-tutorial">
         <h3>ვიდეო ტუტორიალი შეკვეთისთვის</h3>
         <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen></iframe>
-      </div>
+      </div> !-->
       
       <form id="orderForm" onsubmit="submitOrder(event)">
         <div class="form-group">
@@ -208,22 +208,7 @@
         
         <div class="form-group" style="margin-top: 30px;">
           <label style="margin-bottom: 15px;">ანგარიშის ნომრები:</label>
-          
-          <div style="background: linear-gradient(135deg, rgba(255, 136, 0, 0.08), rgba(255, 187, 0, 0.12)); padding: 15px; border-radius: 10px; margin-bottom: 15px; border: 2px solid rgba(255, 136, 0, 0.25); box-shadow: 0 2px 8px rgba(255, 136, 0, 0.1);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="color: #ff8800; font-weight: bold; font-size: 0.95rem;">თბს ბანკი (მიმღები გ.მ.)</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-              <input type="text" value="GE74BG0000000549883748" readonly id="accountTBC" style="flex: 1; background: white; border: 2px solid #ddd; padding: 10px; border-radius: 6px; font-family: monospace; font-size: 0.95rem;">
-              <button type="button" onclick="copyAccount('accountTBC')" class="copy-btn">
-                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-</svg>
-                <span class="copy-text">კოპირება</span>
-              </button>
-            </div>
-          </div>
+        
           
           <div style="background: linear-gradient(135deg, rgba(255, 136, 0, 0.08), rgba(255, 187, 0, 0.12)); padding: 15px; border-radius: 10px; border: 2px solid rgba(255, 136, 0, 0.25); box-shadow: 0 2px 8px rgba(255, 136, 0, 0.1);">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
