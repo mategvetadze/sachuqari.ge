@@ -2,263 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santa Orders</title>
+    <title>Santa Orders Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background: #1a1a1a;
+            color: #eee;
+            margin: 0;
             padding: 20px;
         }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
         h1 {
-            color: #d32f2f;
-            margin-bottom: 20px;
+            text-align: center;
+            color: #ffcc00;
         }
-
-
-
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
         }
-
-        th {
-            background-color: #d32f2f;
-            color: white;
-            padding: 12px;
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
             text-align: left;
-            font-size: 13px;
         }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-            font-size: 13px;
+        th {
+            background: #ff8800;
+            color: #fff;
         }
-
-        th:nth-child(1), td:nth-child(1) { width: 40px; }
-        th:nth-child(2), td:nth-child(2) { width: 110px; }
-        th:nth-child(3), td:nth-child(3) { width: 70px; text-align: center; }
-        th:nth-child(4), td:nth-child(4) { width: 95px; }
-        th:nth-child(5), td:nth-child(5) { width: 110px; }
-        th:nth-child(6), td:nth-child(6) { width: 95px; }
-        th:nth-child(7), td:nth-child(7) { width: 55px; text-align: center; }
-        th:nth-child(8), td:nth-child(8) { width: 90px; }
-        th:nth-child(9), td:nth-child(9) { width: 120px; }
-        th:nth-child(10), td:nth-child(10) { width: auto; min-width: 150px; }
-        th:nth-child(11), td:nth-child(11) { width: 100px; }
-        th:nth-child(12), td:nth-child(12) { width: 50px; text-align: center; }
-
-        tr:hover {
-            background-color: #f9f9f9;
+        tr:nth-child(even) {
+            background: #333;
         }
-
-        .images img {
-            width: 35px;
-            height: 35px;
-            margin-right: 3px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: transform 0.2s;
+        img {
+            max-height: 100px;
+            border-radius: 6px;
+            margin: 3px;
         }
-
-        .images img:hover {
-            transform: scale(1.1);
+        .no-file {
+            color: #777;
+            font-style: italic;
         }
-
-        .video-type {
-            background-color: #fff3cd;
-            padding: 3px 6px;
-            border-radius: 4px;
-            display: inline-block;
-            font-size: 12px;
+        .child-block {
+            margin-top: 10px;
+            padding: 5px;
+            border-left: 3px solid #ff8800;
         }
-
-        .delivery-method {
-            background-color: #d4edda;
-            padding: 3px 6px;
-            border-radius: 4px;
-            display: inline-block;
-            font-size: 12px;
+        .images {
+            margin-top: 5px;
         }
-
-        .age-badge {
-            background-color: #e3f2fd;
-            color: #1565c0;
-            padding: 4px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            font-weight: bold;
-        }
-
         .delete-btn {
-            background-color: #dc3545;
-            color: white;
+            background: #ff4444;
             border: none;
             padding: 6px 10px;
+            color: white;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s;
         }
-
         .delete-btn:hover {
-            background-color: #c82333;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: zoomIn 0.3s;
-        }
-
-        @keyframes zoomIn {
-            from { transform: translate(-50%, -50%) scale(0.5); }
-            to { transform: translate(-50%, -50%) scale(1); }
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
+            background: #ff2222;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎅 შეკვეთების სია</h1>
-        
+    <h1>🎅 Santa Orders Dashboard</h1>
 
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Payment Name</th>
+            <th>Contact</th>
+            <th>Delivery</th>
+            <th>Video Type</th>
+            <th>Receipt</th>
+            <th>Children</th>
+            <th>Actions</th>
+        </tr>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>სახელი და გვარი</th>
-                    <th>ასაკი</th>
-                    <th>ტელეფონის ნომერი</th>
-                    <th>გადამხდელის სახელი</th>
-                    <th>გადამხდელის ნომერი</th>
-                    <th>ადამიანების რაოდენობა</th>
-                    <th>ვიდეოს type</th>
-                    <th>მიწოდების მეთოდი</th>
-                    <th>შესახებ</th>
-                    <th>სურათები</th>
-                    <th>წაშლა</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in orders %}
-                <tr>
-                    <td>{{ order.id }}</td>
-                    <td>{{ order.full_name }}</td>
-                    <td><span class="age-badge">{{ order.age }}</span></td>
-                    <td>{{ order.phone }}</td>
-                    <td>{{ order.payment_name }}</td>
-                    <td>{{ order.payment_contact }}</td>
-                    <td>{{ order.number_of_people }}</td>
-                    <td>
-                        <span class="video-type">
-                            {% if order.video_type == 'Other' and order.video_type_other %}
-                                Other ({{ order.video_type_other }})
-                            {% else %}
-                                {{ order.video_type }}
-                            {% endif %}
-                        </span>
-                    </td>
-                    <td>
-                        <span class="delivery-method">
-                            {% if order.delivery_method == 'Other' and order.delivery_method_other %}
-                                Other ({{ order.delivery_method_other }})
-                            {% elif order.delivery_method == 'Gmail' and order.gmail %}
-                                {{ order.delivery_method }} ({{ order.gmail }})
-                            {% else %}
-                                {{ order.delivery_method }}
-                            {% endif %}
-                        </span>
-                    </td>
-                    <td>{{ order.about }}</td>
-                    <td class="images">
-                        {% for path in order.image_paths.split(',') %}
-                        <img src="{{ path.strip() }}" alt="Image" onclick="openModal(this.src)">
-                        {% endfor %}
-                    </td>
-                    <td>
-                        <form method="POST" action="/delete-order/{{ order.id }}" style="margin: 0;">
-                            <button type="submit" class="delete-btn" onclick="return confirm('დარწმუნებული ხართ, რომ გსურთ წაშლა?')">✕</button>
-                        </form>
-                    </td>
-                </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.payment_name|default:"(no name)" }}</td>
+            <td>{{ order.payment_contact|default:"(no contact)" }}</td>
+            <td>{{ order.delivery_method|default:"(no method)" }}</td>
+            <td>
+                {{ order.video_type }}
+                {% if order.video_type_other %}
+                    <br><small>({{ order.video_type_other }})</small>
+                {% endif %}
+            </td>
+
+            <td>
+                {% if order.receipt %}
+                    <a href="{{ order.receipt.url }}" target="_blank">
+                        <img src="{{ order.receipt.url }}" alt="Receipt">
+                    </a>
+                {% else %}
+                    <span class="no-file">No Receipt</span>
+                {% endif %}
+            </td>
+
+            <td>
+                {% for child in order.children.all %}
+                    <div class="child-block">
+                        <strong>{{ child.name }}</strong>
+                        {% if child.age %} ({{ child.age }} yrs){% endif %}
+                        {% if child.message %}
+                            <p>{{ child.message }}</p>
+                        {% endif %}
+
+                        <div class="images">
+                            {% for img in child.images.all %}
+                                {% if img.image %}
+                                    <img src="{{ img.image.url }}" alt="{{ child.name }}">
+                                {% else %}
+                                    <span class="no-file">📷 No image</span>
+                                {% endif %}
+                            {% empty %}
+                                <span class="no-file">No images</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% empty %}
+                    <span class="no-file">No children</span>
                 {% endfor %}
-            </tbody>
-        </table>
-    </div>
+            </td>
 
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-
-    <script>
-        function openModal(src) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'block';
-            modalImg.src = src;
-        }
-
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
+            <td>
+                <form method="POST" action="/delete-order/{{ order.id }}/" style="margin:0;">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

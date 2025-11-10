@@ -409,17 +409,21 @@ async function submitPayment(event) {
 
   const receipt = document.getElementById('receipt').files[0];
   if (!receipt) {
-    alert('rame');
+    alert('გთხოვთ ატვირთოთ ქვითარი');
     return;
   }
+
   const formData = new FormData();
 
+  // 🎥 Basic order info
   const numPeople = parseInt(document.getElementById('numPeople').value);
-  const videoType = document.querySelector('input[name="videoType"]:checked').value;
-
+  const videoType = document.querySelector('input[name="videoType"]:checked')?.value || '';
+  const videoTypeOther = document.getElementById('videoTypeOther')?.value || '';
   formData.append('numPeople', numPeople);
   formData.append('videoType', videoType);
+  if (videoTypeOther) formData.append('videoTypeOther', videoTypeOther);
 
+  // 👶 Recipients
   const peopleData = [];
   for (let i = 1; i <= numPeople; i++) {
     const personData = {
@@ -434,60 +438,47 @@ async function submitPayment(event) {
       formData.append(`person${i}_photo${j}`, photos[j]);
     }
   }
-
   formData.append('peopleData', JSON.stringify(peopleData));
 
-  const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked').value;
+  // 📦 Delivery info
+  const deliveryMethod = document.querySelector('input[name="deliveryMethod"]:checked')?.value || '';
+  const gmailAddress = document.getElementById('gmailAddress')?.value || '';
+  const otherMethod = document.getElementById('otherMethod')?.value || '';
   formData.append('deliveryMethod', deliveryMethod);
+  if (gmailAddress) formData.append('gmailAddress', gmailAddress);
+  if (otherMethod) formData.append('otherMethod', otherMethod);
 
-  if (deliveryMethod === 'gmail') {
-    formData.append('gmailAddress', document.getElementById('gmailAddress').value);
-  } else if (deliveryMethod === 'other') {
-    formData.append('otherMethod', document.getElementById('otherMethod').value);
-  }
-
-  formData.append('fullName', document.getElementById('fullName').value);
-  formData.append('phoneNumber', document.getElementById('numberPhone').value);
+  // 💳 Payment info
+  formData.append('payment_name', document.getElementById('fullName').value);
+  formData.append('payment_contact', document.getElementById('numberPhone').value);
+  formData.append('iban', document.getElementById('iban')?.value || '');
+  const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || '';
+  if (paymentMethod) formData.append('payment_method', paymentMethod);
   formData.append('receipt', receipt);
 
+  // 📨 Send to backend
   try {
     const submitBtn = event.target.querySelector('.submit-btn');
     const originalText = submitBtn.textContent;
-     submitBtn.textContent = 'დასრულება';
+    submitBtn.textContent = 'იგზავნება...';
     submitBtn.disabled = true;
-    const response = await fetch('/', {
-      method: 'POST',
-      body: formData
-    });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
+    const response = await fetch('/', { method: 'POST', body: formData });
+    if (!response.ok) throw new Error('Network response was not ok');
     const result = await response.json();
-    console.log('Order submitted successfully:', result);
+    console.log('Order submitted:', result);
 
-    document.getElementById('paymentForm').reset();
-    document.getElementById('orderForm').reset();
-    document.getElementById('deliveryForm').reset();
-
+    // Clear UI
+    ['paymentForm','orderForm','deliveryForm'].forEach(id => document.getElementById(id)?.reset());
     deleteFile();
-
-    const container = document.getElementById('nameFieldsContainer');
-    container.innerHTML = '';
-
+    document.getElementById('nameFieldsContainer').innerHTML = '';
     document.getElementById('numPeople').value = '';
-
     closePayment();
     document.getElementById('successModal').style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
-  } catch (error) {
-    console.error('Error submitting order:', error);
-    alert('rame');
-
-    const submitBtn = event.target.querySelector('.submit-btn');
-    submitBtn.textContent = originalText;
-    submitBtn.disabled = false;
+  } catch (err) {
+    console.error('Error submitting order:', err);
+    alert('შეცდომა შეკვეთის გაგზავნისას');
   }
 }
