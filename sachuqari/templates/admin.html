@@ -282,7 +282,15 @@
             <td>{{ order.id }}</td>
             <td>{{ order.payment_name|default:"(no name)" }}</td>
             <td>{{ order.payment_contact|default:"(no contact)" }}</td>
-            <td>{{ order.delivery_method|default:"(no method)" }}</td>
+            <td>
+    {{ order.delivery_method|default:"(no method)" }}
+    {% if order.gmail_address %}
+        <br><small style="color: #ffdd00;">{{ order.gmail_address }}</small>
+    {% endif %}
+    {% if order.other_method %}
+        <br><small style="color: #ffdd00;">{{ order.other_method }}</small>
+    {% endif %}
+</td>
             <td>
                 {{ order.video_type }}
                 {% if order.video_type_other %}
