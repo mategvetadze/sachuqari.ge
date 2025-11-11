@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Santa Orders Dashboard</title>
+    <title>შეკვეთების სია</title>
      <link rel="icon" type="image/png" href="/static/szlogo.png">
     <style>
        * { 
@@ -304,7 +304,8 @@
                 {% for child in order.children.all %}
                     <div class="child-block">
                         <strong>{{ child.name }}</strong>
-                        {% if child.age %} ({{ child.age }} წელი){% endif %}
+                        <br>
+                        {% if child.age %} ({{ child.age }} წლის){% endif %}
                         {% if child.message %}
                             <p>{{ child.message }}</p>
                         {% endif %}
