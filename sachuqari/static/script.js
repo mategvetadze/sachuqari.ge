@@ -191,7 +191,6 @@ function closeSuccessModal() {
   container.innerHTML = '';
   document.getElementById('numPeople').value = '';
 }
-
 function updateNameFields() {
   const numPeople = parseInt(document.getElementById('numPeople').value);
   const container = document.getElementById('nameFieldsContainer');
@@ -264,9 +263,16 @@ function updateNameFields() {
 
     const fileInput = photoGroup.querySelector(`#photoUpload${i}`);
 
+    // *** KEY FIX: Accumulate files and sync with input ***
     fileInput.addEventListener('change', (e) => {
       const newFiles = Array.from(e.target.files);
+      // Add new files to existing ones
       selectedFiles = [...selectedFiles, ...newFiles];
+      
+      // Update the actual file input with all accumulated files
+      const dataTransfer = new DataTransfer();
+      selectedFiles.forEach(file => dataTransfer.items.add(file));
+      fileInput.files = dataTransfer.files;
 
       updateFileDisplay(i, selectedFiles);
       updatePreview(i, selectedFiles);
@@ -308,9 +314,18 @@ function updateNameFields() {
           removeBtn.className = 'remove-image';
           removeBtn.innerHTML = '×';
           removeBtn.type = 'button';
+          
+          // *** KEY FIX: Update file input when removing files ***
           removeBtn.onclick = function () {
             // Remove from selectedFiles array
             selectedFiles.splice(fileIndex, 1);
+            
+            // Update the actual file input with remaining files
+            const dataTransfer = new DataTransfer();
+            selectedFiles.forEach(file => dataTransfer.items.add(file));
+            const fileInputElement = document.getElementById(`photoUpload${index}`);
+            fileInputElement.files = dataTransfer.files;
+            
             updateFileDisplay(index, selectedFiles);
             updatePreview(index, selectedFiles);
           };
