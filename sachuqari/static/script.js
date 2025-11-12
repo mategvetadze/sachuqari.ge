@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Handle delivery overlay - SAME PATTERN
   const deliveryOverlay = document.getElementById('deliveryOverlay');
   if (deliveryOverlay) {
-    deliveryOverlay.addEventListener('click', e => {
-      if (e.target.closest('.delivery-container')) return;
-closeDelivery();
-
-    });
+     deliveryOverlay.addEventListener('click', e => {
+    if (e.target === deliveryOverlay) {  // ✅ Only close if clicking the overlay itself
+      closeDelivery();
+    }
+  });
     
     const deliveryContainer = deliveryOverlay.querySelector('.delivery-container');
     if (deliveryContainer) {
