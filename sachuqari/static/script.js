@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }, 200);
 
-  // Handle order form overlay
   const orderFormOverlay = document.getElementById('orderFormOverlay');
   if (orderFormOverlay) {
     orderFormOverlay.addEventListener('click', e => {
@@ -43,26 +42,16 @@ document.addEventListener('DOMContentLoaded', function () {
         closeOrderForm();
       }
     });
-    
-    const orderFormContainer = orderFormOverlay.querySelector('.order-form-container');
-    if (orderFormContainer) {
-      orderFormContainer.addEventListener('click', e => e.stopPropagation());
-    }
   }
 
-  // Handle delivery overlay - SAME PATTERN
+  // Handle delivery overlay - FIXED
   const deliveryOverlay = document.getElementById('deliveryOverlay');
   if (deliveryOverlay) {
-     deliveryOverlay.addEventListener('click', e => {
-    if (e.target === deliveryOverlay) {  // ✅ Only close if clicking the overlay itself
-      closeDelivery();
-    }
-  });
-    
-    const deliveryContainer = deliveryOverlay.querySelector('.delivery-container');
-    if (deliveryContainer) {
-      deliveryContainer.addEventListener('click', e => e.stopPropagation());
-    }
+    deliveryOverlay.addEventListener('click', e => {
+      if (e.target === deliveryOverlay) {
+        closeDelivery();
+      }
+    });
   }
 
   // Handle payment overlay
@@ -73,11 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
         closePayment();
       }
     });
-    
-    const paymentContainer = paymentOverlay.querySelector('.payment-container');
-    if (paymentContainer) {
-      paymentContainer.addEventListener('click', e => e.stopPropagation());
-    }
   }
 });
 
