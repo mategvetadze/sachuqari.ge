@@ -68,46 +68,41 @@
     აჩუქეთ თქვენს პატარას ის ემოცია, რომელსაც მთელი ცხოვრება ჩაიხუტებს.
     შეუკვეთეთ ახლა და შექმენით თქვენი პატარა ჯადოსნური ისტორია! ✨
   </div>
-<section class="examples-section">
-  <h2>ვიდეო-წერილის ნიმუშები</h2>
+ <section class="examples-section">
+    <h2>ვიდეო-წერილის ნიმუშები</h2>
+    <div class="videos-container">
+      <iframe 
+        src="https://www.youtube.com/embed/qZFwU6ytYT4" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+  <section class="examples-section">
+  <h2>როგორ განვათავსოთ შეკვეთა?</h2>
   <div class="videos-container">
-    <iframe 
-      width="560" 
-      height="315"
-      src="https://www.youtube.com/embed/qZFwU6ytYT4" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-    </iframe>
-    <iframe 
-      width="560" 
-      height="315"
-      src="https://www.youtube.com/embed/f2G3sU5LF_o" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    <iframe
+      src="https://www.youtube.com/embed/_O-gTQIu6Yg"
+      title="როგორ განვათავსოთ შეკვეთა"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen>
     </iframe>
   </div>
 </section>
 
+
   <div class="order-button-container">
     <button class="order-button" onclick="openOrderForm()">შეუკვეთე ახლავე🎅</button>
   </div>
 
   <div class="order-form-overlay" id="orderFormOverlay">
+    
     <div class="order-form-container">
       <button class="close-form" onclick="closeOrderForm()">×</button>
       <h2>შეკვეთის ფორმა</h2>
-      
-
-       <!--<div class="video-tutorial">
-        <h3>ვიდეო ტუტორიალი შეკვეთისთვის</h3>
-        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen></iframe>
-      </div> !-->
-      
       <form id="orderForm" onsubmit="submitOrder(event)">
         <div class="form-group">
           <label for="numPeople">რამდენი ადამიანისთვის გსურთ ვიდეო?</label>
@@ -152,7 +147,9 @@
     </div>
   </div>
 
+
   <div class="delivery-overlay" id="deliveryOverlay">
+   
     <div class="delivery-container">
       <button class="close-form" onclick="closeDelivery()">×</button>
       <h2>აირჩიეთ მიწოდების მეთოდი</h2>
@@ -206,7 +203,9 @@
     </div>
   </div>
 
+
 <div class="payment-overlay" id="paymentOverlay">
+  
     <div class="payment-container">
       <button class="close-form" onclick="closePayment()">×</button>
       <h2>გადახდა</h2>
@@ -267,7 +266,7 @@
       </form>
     </div>
   </div>
-  
+
 
   <div class="success-modal" id="successModal">
     <div class="success-content">
