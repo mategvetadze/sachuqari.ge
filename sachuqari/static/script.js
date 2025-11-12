@@ -157,36 +157,6 @@ function closePayment() {
   document.body.style.overflow = 'auto';
 }
 
-function submitPayment(event) {
-  event.preventDefault();
-
-  const receipt = document.getElementById('receipt').files[0];
-  if (!receipt) {
-    alert('გთხოვთ ატვირთოთ ქვითარი');
-    return;
-  }
-
-  console.log('Payment submitted');
-
-  // Reset all forms
-  document.getElementById('paymentForm').reset();
-  document.getElementById('orderForm').reset();
-  document.getElementById('deliveryForm').reset();
-
-  // Clear the payment file upload display
-  deleteFile();
-
-  // Clear all dynamic name fields completely
-  const container = document.getElementById('nameFieldsContainer');
-  container.innerHTML = '';
-
-  // Reset the number of people selector
-  document.getElementById('numPeople').value = '';
-
-  closePayment();
-  document.getElementById('successModal').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
 
 function saveForm() {
   document.getElementById('paymentOverlay').style.display = 'none';
