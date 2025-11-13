@@ -24,7 +24,8 @@ def home(request):
                 delivery_method=request.POST.get("deliveryMethod"),
                 gmail_address=request.POST.get("gmailAddress"),
                 other_method=request.POST.get("otherMethod"),
-                receipt=request.FILES.get('receipt')
+                receipt=request.FILES.get('receipt'),
+                user_comment=request.POST.get('user_comment')
             )
 
             
