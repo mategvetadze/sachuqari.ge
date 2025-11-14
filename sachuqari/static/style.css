@@ -4134,3 +4134,39 @@ body.modal-open {
       line-height: 1.6;
       opacity: 0.9;
     }
+
+
+/* TOP.GE Logo in Footer */
+.footer img[src="/static/topp.png"] {
+  display: block;
+  margin: 15px auto;
+  max-width: 150px;
+  height: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.footer img[src="/static/topp.png"]:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.footer a:has(img) {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Responsive for TOP.GE logo */
+@media (max-width: 768px) {
+  .footer img[src="/static/topp.png"] {
+    max-width: 120px;
+    margin: 12px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer img[src="/static/topp.png"] {
+    max-width: 100px;
+    margin: 10px auto;
+  }
+}
