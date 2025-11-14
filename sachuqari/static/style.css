@@ -3967,67 +3967,56 @@ body.modal-open {
       animation: bounce 2s infinite;
     }
 
-    /* TOP.GE Counter Styling */
+   /* TOP.GE Counter - Force positioning */
 #top-ge-counter-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 8px 12px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 136, 0, 0.2);
-  transition: all 0.3s ease;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 9999 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  padding: 10px 15px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+  border: 2px solid rgba(255, 136, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+  min-width: 100px !important;
 }
 
 #top-ge-counter-container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 136, 0, 0.3);
-  border-color: rgba(255, 136, 0, 0.4);
-}
-/* TOP.GE Counter Styling */
-#top-ge-counter-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 240, 0.95));
-  padding: 10px 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 136, 0, 0.3);
-  transition: all 0.3s ease;
-  font-family: 'Mountains of Christmas', cursive;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.4) !important;
 }
 
-#top-ge-counter-container:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.4);
-  border-color: rgba(255, 136, 0, 0.5);
-}
-
-/* Style the counter content */
-#top-ge-counter-container img {
+/* Style internal elements */
+#top-ge-counter-container * {
+  max-width: 100%;
   vertical-align: middle;
-  max-height: 20px;
-  width: auto;
+}
+
+#top-ge-counter-container img {
+  max-height: 24px !important;
+  width: auto !important;
+  display: inline-block !important;
 }
 
 #top-ge-counter-container a {
-  color: #ff8800;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  color: #ff8800 !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
 }
 
-#top-ge-counter-container a:hover {
-  color: #ff5500;
-  text-shadow: 0 0 10px rgba(255, 136, 0, 0.5);
+/* Hide on small screens if needed */
+@media (max-width: 480px) {
+  #top-ge-counter-container {
+    bottom: 10px !important;
+    right: 10px !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+  }
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   #top-ge-counter-container {
