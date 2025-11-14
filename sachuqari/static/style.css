@@ -4066,3 +4066,17 @@ body.modal-open {
       line-height: 1.6;
       opacity: 0.9;
     }
+    #top-ge-counter-container {
+  text-align: center;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p:last-child {
+  margin-top: 25px;
+  font-size: 0.95rem; 
+  opacity: 0.8;
+  color:white;
+}
