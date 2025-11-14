@@ -3987,7 +3987,70 @@ body.modal-open {
   box-shadow: 0 4px 15px rgba(255, 136, 0, 0.3);
   border-color: rgba(255, 136, 0, 0.4);
 }
+/* TOP.GE Counter Styling */
+#top-ge-counter-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 240, 0.95));
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 136, 0, 0.3);
+  transition: all 0.3s ease;
+  font-family: 'Mountains of Christmas', cursive;
+}
 
+#top-ge-counter-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.4);
+  border-color: rgba(255, 136, 0, 0.5);
+}
+
+/* Style the counter content */
+#top-ge-counter-container img {
+  vertical-align: middle;
+  max-height: 20px;
+  width: auto;
+}
+
+#top-ge-counter-container a {
+  color: #ff8800;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+#top-ge-counter-container a:hover {
+  color: #ff5500;
+  text-shadow: 0 0 10px rgba(255, 136, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #top-ge-counter-container {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #top-ge-counter-container {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  
+  #top-ge-counter-container:hover {
+    opacity: 1;
+  }
+}
 /* Hide counter on mobile devices for better UX */
 @media (max-width: 768px) {
   #top-ge-counter-container {
@@ -3998,12 +4061,7 @@ body.modal-open {
   }
 }
 
-/* Optional: Hide on very small screens */
-@media (max-width: 480px) {
-  #top-ge-counter-container {
-    display: none;
-  }
-}
+
     @keyframes bounce {
       0%, 100% {
         transform: translateY(0);
