@@ -3966,90 +3966,75 @@ body.modal-open {
       vertical-align: middle;
       animation: bounce 2s infinite;
     }
-
-   /* TOP.GE Counter - Force positioning */
+/* TOP.GE Counter Styling */
 #top-ge-counter-container {
   position: fixed !important;
   bottom: 20px !important;
   right: 20px !important;
-  top: auto !important;
-  left: auto !important;
   z-index: 9999 !important;
   background: rgba(255, 255, 255, 0.95) !important;
-  padding: 10px 15px !important;
-  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  border-radius: 10px !important;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
   border: 2px solid rgba(255, 136, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
   transition: all 0.3s ease !important;
-  display: inline-block !important;
-  min-width: 100px !important;
+  display: block !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
 }
 
 #top-ge-counter-container:hover {
   transform: translateY(-3px) !important;
   box-shadow: 0 6px 20px rgba(255, 136, 0, 0.4) !important;
+  border-color: rgba(255, 136, 0, 0.5) !important;
 }
 
-/* Style internal elements */
-#top-ge-counter-container * {
-  max-width: 100%;
-  vertical-align: middle;
+/* Style the link inside */
+#top-ge-counter-container a {
+  color: #333 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
 }
 
+#top-ge-counter-container a:hover {
+  color: #ff8800 !important;
+}
+
+/* Style the TOP.GE logo image */
 #top-ge-counter-container img {
-  max-height: 24px !important;
+  max-height: 16px !important;
   width: auto !important;
+  vertical-align: middle !important;
+  border: 0 !important;
   display: inline-block !important;
 }
 
-#top-ge-counter-container a {
-  color: #ff8800 !important;
-  text-decoration: none !important;
-  font-weight: bold !important;
+/* Responsive */
+@media (max-width: 768px) {
+  #top-ge-counter-container {
+    bottom: 15px !important;
+    right: 15px !important;
+    padding: 6px 10px !important;
+  }
+  
+  #top-ge-counter-container a {
+    font-size: 12px !important;
+  }
 }
 
-/* Hide on small screens if needed */
 @media (max-width: 480px) {
   #top-ge-counter-container {
     bottom: 10px !important;
     right: 10px !important;
-    padding: 6px 10px !important;
-    font-size: 0.85rem !important;
+    padding: 5px 8px !important;
+    opacity: 0.9 !important;
   }
 }
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  #top-ge-counter-container {
-    bottom: 15px;
-    right: 15px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  #top-ge-counter-container {
-    bottom: 10px;
-    right: 10px;
-    padding: 6px 10px;
-    font-size: 0.85rem;
-    opacity: 0.8;
-  }
-  
-  #top-ge-counter-container:hover {
-    opacity: 1;
-  }
-}
-/* Hide counter on mobile devices for better UX */
-@media (max-width: 768px) {
-  #top-ge-counter-container {
-    bottom: 10px;
-    right: 10px;
-    padding: 6px 10px;
-    font-size: 0.85rem;
-  }
-}
-
 
     @keyframes bounce {
       0%, 100% {
