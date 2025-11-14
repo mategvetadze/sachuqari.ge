@@ -3967,6 +3967,43 @@ body.modal-open {
       animation: bounce 2s infinite;
     }
 
+    /* TOP.GE Counter Styling */
+#top-ge-counter-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 136, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#top-ge-counter-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 136, 0, 0.3);
+  border-color: rgba(255, 136, 0, 0.4);
+}
+
+/* Hide counter on mobile devices for better UX */
+@media (max-width: 768px) {
+  #top-ge-counter-container {
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Optional: Hide on very small screens */
+@media (max-width: 480px) {
+  #top-ge-counter-container {
+    display: none;
+  }
+}
     @keyframes bounce {
       0%, 100% {
         transform: translateY(0);
