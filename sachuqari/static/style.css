@@ -4066,12 +4066,20 @@ body.modal-open {
       line-height: 1.6;
       opacity: 0.9;
     }
-    #top-ge-counter-container {
+ 
+#top-ge-counter-container {
   text-align: center;
   margin: 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 40px;
+}
+
+#top-ge-counter-container img {
+  max-width: 88px;
+  height: auto;
+  display: inline-block;
 }
 
 .footer p:last-child {
